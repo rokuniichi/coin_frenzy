@@ -31,7 +31,6 @@ public class SpawnManager : MonoBehaviour
             spawnPosition = new Vector3(Random.Range(OFFSET, groundBounds.x - OFFSET) + activeTerrain.transform.position.x,
                 objectPrefab.transform.position.y, 
                 Random.Range(OFFSET, groundBounds.z - OFFSET) + activeTerrain.transform.position.z);
-            //Debug.Log(activeTerrain.SampleHeight(spawnPosition));
             spawnPosition.y += activeTerrain.SampleHeight(spawnPosition);
 
             Instantiate(objectPrefab, spawnPosition, objectPrefab.transform.rotation);
