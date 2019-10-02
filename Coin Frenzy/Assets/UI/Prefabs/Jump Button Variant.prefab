@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 5203258810497903996, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_TagString
-      value: HideUI
+      value: GameUI
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
@@ -75,12 +75,12 @@ PrefabInstance:
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1400
+      value: 503.99994
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 400
+      value: -5.0000076
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
@@ -95,32 +95,32 @@ PrefabInstance:
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1965027940444012083, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ce06aa7dab594384f9fb9ab052793, type: 3}

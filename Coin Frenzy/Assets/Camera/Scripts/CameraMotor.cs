@@ -22,7 +22,7 @@ public class CameraMotor : MonoBehaviour
         initialOffset = new Vector3(OFFSET_X, OFFSET_Y, OFFSET_Z);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         RotateCamera();
     }

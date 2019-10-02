@@ -53,17 +53,20 @@ public class PlayerController : MonoBehaviour
         speedModifier = 1;
 
     }
-
     private void Update()
     {
-        MoveAndRotatePlayer();
         AnimatePlayer(jump);
+
+    }
+    private void FixedUpdate()
+    {
+        MoveAndRotatePlayer();
     }
     public void MoveAndRotatePlayer()
     {
         // Moving and rotating player
         cameraAngleY = mainCamera.transform.rotation.eulerAngles.y;
-        velocity = new Vector3(movementJoystick.Horizontal, 0, movementJoystick.Vertical) * SPEED * speedModifier * Time.deltaTime;
+        velocity = new Vector3(movementJoystick.Horizontal, 0, movementJoystick.Vertical) * SPEED * Time.deltaTime * speedModifier ;
         transform.rotation = Quaternion.AngleAxis(cameraAngleY +
         Vector3.SignedAngle(Vector3.forward, velocity.normalized, Vector3.up), Vector3.up);
         velocity = Quaternion.AngleAxis(cameraAngleY, Vector3.up) * velocity;
@@ -82,12 +85,15 @@ public class PlayerController : MonoBehaviour
             jump = false;
             verticalVelocity -= GRAVITY_CONST * Time.deltaTime;
         }
-
         playerRb.velocity = new Vector3(velocity.x, verticalVelocity, velocity.z);
+        Debug.Log(playerRb.velocity);        
+    }
+
+    private void LateUpdate()
+    {
         playerModel.transform.position = transform.position;
         playerModel.transform.rotation = transform.rotation;
     }
-
     private void AnimatePlayer(bool jump)
     {
         if (jump)
@@ -136,7 +142,8 @@ public class PlayerController : MonoBehaviour
             }
 
             lastPowerupHandler = StartCoroutine(PowerupCollectHandler());
-        } else if (collision.gameObject.CompareTag("Exit"))
+        }
+        else if (collision.gameObject.CompareTag("Exit"))
         {
             gm.ExitHandler();
             playerAudio.PlayOneShot(victorySound, 1.0f);
