@@ -10,18 +10,17 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text timeText;
-    public AudioClip theme;
+    public Text gameOverText;
     
     [HideInInspector]
     public bool gameOver;
-    private RectTransform scoreTextRt;
     private GameObject[] gameUI;
     private GameObject[] pauseUI;
     private GameObject[] hideGameOverUI;
     private GameObject[] showGameOverUI;
     private ButtonManager bm;
     private PlayerController controller;
-    private AudioSource cameraAudioSource;
+    public AudioSource cameraAudioSource;
     private int coinsCollected;
     private float timer;
     private Rect tempRect;
@@ -34,7 +33,6 @@ public class GameManager : MonoBehaviour
         hideGameOverUI = GameObject.FindGameObjectsWithTag("HideGameOverUI");
         showGameOverUI = GameObject.FindGameObjectsWithTag("ShowGameOverUI");
         bm = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ButtonManager>();
-        scoreTextRt = scoreText.GetComponent<RectTransform>();
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         cameraAudioSource = Camera.main.GetComponent<AudioSource>();
         SetActiveUI(gameUI, true);
@@ -88,17 +86,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void playSound(AudioClip sound)
+    {
+        cameraAudioSource.PlayOneShot(sound, 1.0f);
+    }
+
     private void GameOverHandler()
     {
         gameOver = false;
         controller.StopAllCoroutines();
         Time.timeScale = 0;
+        gameOverText.color = Color.red;
         SetActiveUI(gameUI, false);
         SetActiveUI(hideGameOverUI, false);
         SetActiveUI(pauseUI, true);
         SetActiveUI(showGameOverUI, true);
 
-        //cameraAudioSource.PlayOneShot(controller.gameOverSound, 1.0f);
+        playSound(controller.gameOverSound);
+
+        //tempRect = scoreTextRt.rect;
+        //scoreTextRt.localPosition = new Vector3(-SCORE_TEXT_OFFSET, SCORE_TEXT_OFFSET, 0);
+    }
+    public void ExitHandler()
+    {
+        controller.StopAllCoroutines();
+        Time.timeScale = 0;
+        gameOverText.text = "VICTORY!\n" + "Coins: " + coinsCollected;
+        gameOverText.color = Color.green;
+        SetActiveUI(gameUI, false);
+        SetActiveUI(hideGameOverUI, false);
+        SetActiveUI(pauseUI, true);
+        SetActiveUI(showGameOverUI, true);
+
+        playSound(controller.victorySound);
+
         //tempRect = scoreTextRt.rect;
         //scoreTextRt.localPosition = new Vector3(-SCORE_TEXT_OFFSET, SCORE_TEXT_OFFSET, 0);
     }

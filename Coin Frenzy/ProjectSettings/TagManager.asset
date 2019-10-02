@@ -16,6 +16,8 @@ TagManager:
   - PauseUI
   - HideGameOverUI
   - ShowGameOverUI
+  - HideUI
+  - Exit
   layers:
   - Default
   - TransparentFX

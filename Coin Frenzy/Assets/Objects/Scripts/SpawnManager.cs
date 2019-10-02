@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-
+    private const float OFFSET = 125;
     public GameObject coinPrefab;
     public GameObject powerupPrefab;
+    public Terrain activeTerrain;
+
     public int coinsAmount;
     public int powerupsAmount;
 
     private Vector3 groundBounds;
     private Vector3 spawnPosition;
+    private Vector3 tempPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +24,14 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObjects(GameObject objectPrefab, int objectsAmount)
     {
-        groundBounds = GameObject.FindGameObjectWithTag("Ground").GetComponent<MeshCollider>().bounds.size;
+        groundBounds = activeTerrain.GetComponent<TerrainCollider>().bounds.size;
         for (int i = 0; i < objectsAmount; i++)
         {
-            spawnPosition = new Vector3(Random.Range(-groundBounds.x / 2.0f, groundBounds.x / 2.0f),
-                objectPrefab.transform.position.y, Random.Range(-groundBounds.z / 2.0f, groundBounds.z / 2.0f));
+            spawnPosition = new Vector3(Random.Range(OFFSET, groundBounds.x - OFFSET) + activeTerrain.transform.position.x,
+                objectPrefab.transform.position.y, 
+                Random.Range(OFFSET, groundBounds.z - OFFSET) + activeTerrain.transform.position.z);
+            //Debug.Log(activeTerrain.SampleHeight(spawnPosition));
+            spawnPosition.y += activeTerrain.SampleHeight(spawnPosition);
 
             Instantiate(objectPrefab, spawnPosition, objectPrefab.transform.rotation);
         }

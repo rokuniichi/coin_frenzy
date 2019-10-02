@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraMotor : MonoBehaviour
 {
+    private const float OFFSET_X = 0;
+    private const float OFFSET_Y = 2;
+    private const float OFFSET_Z = -2.4f;
     public FixedJoystick cameraJoystick;
     public float verticalOffset;
 
@@ -15,7 +18,8 @@ public class CameraMotor : MonoBehaviour
     private void Start()
     {
         playerTransform = (GameObject.FindGameObjectWithTag("Player")).transform;
-        initialOffset = transform.position - playerTransform.position;
+        //initialOffset = transform.position - playerTransform.position;
+        initialOffset = new Vector3(OFFSET_X, OFFSET_Y, OFFSET_Z);
     }
 
     private void Update()

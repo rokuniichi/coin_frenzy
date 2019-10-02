@@ -136,6 +136,12 @@ public class PlayerController : MonoBehaviour
             }
 
             lastPowerupHandler = StartCoroutine(PowerupCollectHandler());
+        } else if (collision.gameObject.CompareTag("Exit"))
+        {
+            gm.ExitHandler();
+            playerAudio.PlayOneShot(victorySound, 1.0f);
+            Destroy(collision.gameObject);
+
         }
     }
 
