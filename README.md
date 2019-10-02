@@ -1,4 +1,5 @@
 # Coin Frenzy
+![Game screenshot](https://imgur.com/xaEDhoA.png)
 
 [Game Mavericks](http://gamemavericks.com/) test task source code
 
