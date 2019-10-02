@@ -6,27 +6,33 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     public AudioClip clickSound;
+    public bool pauseClick;
 
-    private GameManager gm;
+    private AudioSource cameraAudioSource;
     private void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        cameraAudioSource = Camera.main.GetComponent<AudioSource>();
     }
-    public bool pauseClick;
+
     public void StartGameClick()
     {
-        gm.playSound(clickSound);
+        PlayClickSound();
         SceneManager.LoadScene("Main");
     }
 
     public void PauseClick()
     {
-        gm.playSound(clickSound);
+        PlayClickSound();
         pauseClick = true;
     }
 
     public void QuitClick()
     {
         Application.Quit();
+    }
+
+    public void PlayClickSound()
+    {
+        cameraAudioSource.PlayOneShot(clickSound, 1.0f);
     }
 }

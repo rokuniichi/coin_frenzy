@@ -18,6 +18,7 @@ TagManager:
   - ShowGameOverUI
   - HideUI
   - Exit
+  - MenuManager
   layers:
   - Default
   - TransparentFX

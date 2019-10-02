@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     private const float OFFSET = 125;
+
     public GameObject coinPrefab;
     public GameObject powerupPrefab;
     public Terrain activeTerrain;
