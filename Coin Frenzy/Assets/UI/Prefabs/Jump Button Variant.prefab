@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5203258810497903996, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}
       propertyPath: m_Name
-      value: Jump Button
+      value: Jump Button Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5203258810497903996, guid: 056ce06aa7dab594384f9fb9ab052793,
         type: 3}

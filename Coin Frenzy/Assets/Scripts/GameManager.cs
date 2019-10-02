@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private const float GAME_TIME = 60.0f;
-    private const float SCORE_TEXT_OFFSET = 100.0f;
 
     public Text scoreText;
     public Text timeText;

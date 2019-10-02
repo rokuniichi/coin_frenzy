@@ -4,21 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - MovementJoystick
-  - CameraJoystick
-  - JumpButton
   - Coin
-  - Ground
   - PowerUp
   - GameManager
-  - Canvas
+  - Exit
   - GameUI
   - PauseUI
-  - HideGameOverUI
   - ShowGameOverUI
-  - HideUI
-  - Exit
-  - MenuManager
+  - HideGameOverUI
+  - Undefined
+  - Canvas
   layers:
   - Default
   - TransparentFX
