@@ -2302,6 +2302,16 @@ PrefabInstance:
       propertyPath: jumpButton
       value: 
       objectReference: {fileID: 1405256122}
+    - target: {fileID: 8823225421276995153, guid: 322633e1007dd3144bd042348bc3254b,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823225421276995152, guid: 322633e1007dd3144bd042348bc3254b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 322633e1007dd3144bd042348bc3254b, type: 3}
 --- !u!1 &2131830666

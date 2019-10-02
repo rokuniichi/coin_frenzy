@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         cameraAngleY = mainCamera.transform.rotation.eulerAngles.y;
         velocity = new Vector3(movementJoystick.Horizontal, 0, movementJoystick.Vertical) * SPEED * Time.deltaTime * speedModifier ;
         transform.rotation = Quaternion.AngleAxis(cameraAngleY +
-        Vector3.SignedAngle(Vector3.forward, velocity.normalized, Vector3.up), Vector3.up);
+        Vector3.SignedAngle(Vector3.forward, velocity.normalized + Vector3.forward * 0.01f, Vector3.up), Vector3.up);
         velocity = Quaternion.AngleAxis(cameraAngleY, Vector3.up) * velocity;
 
         if (IsGrounded())
@@ -85,8 +85,8 @@ public class PlayerController : MonoBehaviour
             jump = false;
             verticalVelocity -= GRAVITY_CONST * Time.deltaTime;
         }
+
         playerRb.velocity = new Vector3(velocity.x, verticalVelocity, velocity.z);
-        Debug.Log(playerRb.velocity);        
     }
 
     private void LateUpdate()
@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
         playerModel.transform.position = transform.position;
         playerModel.transform.rotation = transform.rotation;
     }
+
     private void AnimatePlayer(bool jump)
     {
         if (jump)
@@ -123,7 +124,7 @@ public class PlayerController : MonoBehaviour
         speedModifier = 1;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
@@ -151,6 +152,4 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
-
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6721044380937747546}
   - component: {fileID: 358876242}
   m_Layer: 0
-  m_Name: Power Up
+  m_Name: PowerUp
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7478524732807992891}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.0000002
