@@ -1,4 +1,5 @@
 # Coin Frenzy
+![Game screenshot](https://imgur.com/xaEDhoA.png)
 
 [Game Mavericks](http://gamemavericks.com/) test task source code
 
@@ -8,6 +9,8 @@ Used assets (Unity Asset Store links)
 * [Joystick Pack](https://assetstore.unity.com/packages/tools/input-management/joystick-pack-107631)
 * [Max Adventure Model](https://assetstore.unity.com/packages/3d/characters/humanoids/max-adventure-model-3012)
 * [Sound FX - Retro Pack](https://assetstore.unity.com/packages/audio/sound-fx/sound-fx-retro-pack-121743)
+* [Loop & Music Free](https://assetstore.unity.com/packages/audio/music/loop-music-free-111896)
+
 
 
 <p align="center">
