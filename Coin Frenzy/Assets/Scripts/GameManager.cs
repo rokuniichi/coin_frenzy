@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text timeText;
+    public AudioClip theme;
     
     [HideInInspector]
     public bool gameOver;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     private GameObject[] showGameOverUI;
     private ButtonManager bm;
     private PlayerController controller;
+    private AudioSource cameraAudioSource;
     private int coinsCollected;
     private float timer;
     private Rect tempRect;
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         bm = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ButtonManager>();
         scoreTextRt = scoreText.GetComponent<RectTransform>();
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        cameraAudioSource = Camera.main.GetComponent<AudioSource>();
         SetActiveUI(gameUI, true);
         SetActiveUI(pauseUI, false);
         SetActiveUI(showGameOverUI, false);
@@ -95,9 +98,9 @@ public class GameManager : MonoBehaviour
         SetActiveUI(pauseUI, true);
         SetActiveUI(showGameOverUI, true);
 
-
-        tempRect = scoreTextRt.rect;
-        scoreTextRt.localPosition = new Vector3(-SCORE_TEXT_OFFSET, SCORE_TEXT_OFFSET, 0);
+        //cameraAudioSource.PlayOneShot(controller.gameOverSound, 1.0f);
+        //tempRect = scoreTextRt.rect;
+        //scoreTextRt.localPosition = new Vector3(-SCORE_TEXT_OFFSET, SCORE_TEXT_OFFSET, 0);
     }
 
     public void PauseHandler()
