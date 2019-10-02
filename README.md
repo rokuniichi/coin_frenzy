@@ -1,6 +1,7 @@
 # Coin Frenzy
-![Game screenshot](https://imgur.com/xaEDhoA.png)
 
+![Game screenshot](https://imgur.com/xaEDhoA.png)
+## v0.1 apk is available
 [Game Mavericks](http://gamemavericks.com/) test task source code
 
 [Project design document](https://docs.google.com/document/d/1CwgXYUw5NnwpJEZdLyBMPDspmPlVi6tt0WzvW5hsmus/edit?usp=sharing) (Google Drive link)
