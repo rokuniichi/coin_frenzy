@@ -10,6 +10,7 @@ Used assets (Unity Asset Store links)
 * [Max Adventure Model](https://assetstore.unity.com/packages/3d/characters/humanoids/max-adventure-model-3012)
 * [Sound FX - Retro Pack](https://assetstore.unity.com/packages/audio/sound-fx/sound-fx-retro-pack-121743)
 * [Loop & Music Free](https://assetstore.unity.com/packages/audio/music/loop-music-free-111896)
+* [Fantasy Skybox FREE](https://assetstore.unity.com/packages/2d/textures-materials/sky/fantasy-skybox-free-18353)
 
 
 
