@@ -7,6 +7,7 @@ public class CameraMotor : MonoBehaviour
     private const float OFFSET_X = 0;
     private const float OFFSET_Y = 2;
     private const float OFFSET_Z = -2.4f;
+    private const float VERTICAL_OFFSET = 1.35f;
     public FixedJoystick cameraJoystick;
     public float verticalOffset;
 
@@ -31,6 +32,6 @@ public class CameraMotor : MonoBehaviour
     {
         rotationAngle += cameraJoystick.Horizontal * rotationSpeed;
         transform.position = playerTransform.position + Quaternion.AngleAxis(rotationAngle, Vector3.up) * initialOffset;
-        transform.rotation = Quaternion.LookRotation(playerTransform.position - transform.position + (Vector3.up * verticalOffset), Vector3.up);
+        transform.rotation = Quaternion.LookRotation(playerTransform.position - transform.position + (Vector3.up * (verticalOffset + cameraJoystick.Vertical)), Vector3.up);
     }
 }
