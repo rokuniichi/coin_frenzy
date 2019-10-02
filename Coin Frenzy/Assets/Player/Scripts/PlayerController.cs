@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
     private const float DOWNFORCE = -0.1f;
     private const float RAY_Y_OFFSET = 0.2f;
     private const float RAY_DISTANCE = 0.5f;
-    private const float SPEED = 400.0f;
+    private const float SPEED = 500.0f;
     private const float SPEED_MODIFIER = 2.0f;
     private const float JUMP_FORCE = 8.0f;
     private const float POWERUP_DURATION = 3.0f;
+    private const float MAX_MAGNITUDE = 10.0f;
 
     public FixedJoystick movementJoystick;
     public FixedButton jumpButton;
@@ -97,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
     private void AnimatePlayer(bool jump)
     {
+        anim.SetBool("grounded_b", IsGrounded());
         if (jump)
         {
             anim.SetTrigger("jump_t");
@@ -105,6 +107,8 @@ public class PlayerController : MonoBehaviour
         tempVelocity.y = 0;
         magnitude = tempVelocity.magnitude;
         anim.SetFloat("speed_f", magnitude);
+        anim.SetFloat("modifier_f", magnitude / MAX_MAGNITUDE);
+        Debug.Log(magnitude / MAX_MAGNITUDE);
     }
 
 
