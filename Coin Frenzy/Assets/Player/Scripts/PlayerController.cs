@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         // Moving and rotating player
         cameraAngleY = mainCamera.transform.rotation.eulerAngles.y;
-        velocity = new Vector3(movementJoystick.Horizontal, 0, movementJoystick.Vertical) * SPEED * Time.deltaTime * speedModifier ;
+        velocity = new Vector3(movementJoystick.Horizontal, 0, movementJoystick.Vertical) * SPEED * Time.deltaTime * speedModifier;
         transform.rotation = Quaternion.AngleAxis(cameraAngleY +
         Vector3.SignedAngle(Vector3.forward, velocity.normalized + Vector3.forward * 0.01f, Vector3.up), Vector3.up);
         velocity = Quaternion.AngleAxis(cameraAngleY, Vector3.up) * velocity;
@@ -149,7 +149,6 @@ public class PlayerController : MonoBehaviour
             gm.ExitHandler();
             playerAudio.PlayOneShot(victorySound, 1.0f);
             Destroy(collision.gameObject);
-
         }
     }
 }
