@@ -56,17 +56,18 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        AnimatePlayer(jump);
 
     }
     private void FixedUpdate()
     {
         MoveAndRotatePlayer();
+        AnimatePlayer(jump);
     }
     public void MoveAndRotatePlayer()
     {
         // Moving and rotating player
         cameraAngleY = mainCamera.transform.rotation.eulerAngles.y;
+
         velocity = new Vector3(movementJoystick.Horizontal, 0, movementJoystick.Vertical) * SPEED * Time.deltaTime * speedModifier;
         transform.rotation = Quaternion.AngleAxis(cameraAngleY +
         Vector3.SignedAngle(Vector3.forward, velocity.normalized + Vector3.forward * 0.01f, Vector3.up), Vector3.up);
@@ -98,11 +99,11 @@ public class PlayerController : MonoBehaviour
 
     private void AnimatePlayer(bool jump)
     {
-        anim.SetBool("grounded_b", IsGrounded());
         if (jump)
         {
             anim.SetTrigger("jump_t");
         }
+        anim.SetBool("grounded_b", IsGrounded());
         tempVelocity = playerRb.velocity;
         tempVelocity.y = 0;
         magnitude = tempVelocity.magnitude;
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         Ray groundRay = new Ray(new Vector3(col.bounds.center.x, col.bounds.center.y - col.bounds.extents.y + RAY_Y_OFFSET, col.bounds.center.z), Vector3.down);
-        return Physics.Raycast(groundRay.origin, groundRay.direction, 0.25f);
+        return Physics.Raycast(groundRay.origin, groundRay.direction, 0.3f);
         //Debug.DrawRay(new Vector3(col.bounds.center.x, col.bounds.center.y - col.bounds.extents.y + RAY_Y_CONST, col.bounds.center.z), Vector3.down, Color.red, 1.0f);
     }
 
