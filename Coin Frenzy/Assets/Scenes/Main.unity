@@ -387,7 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraJoystick: {fileID: 1565058803}
-  verticalOffset: 1.35
 --- !u!82 &963194230
 AudioSource:
   m_ObjectHideFlags: 0
@@ -978,5 +977,25 @@ PrefabInstance:
       propertyPath: cameraAudioSource
       value: 
       objectReference: {fileID: 963194230}
+    - target: {fileID: 8069999140220718207, guid: 3025c050f6b86a74682a4f148ef1a783,
+        type: 3}
+      propertyPath: powerUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a45339362ec64294fabf7e4d24c408d1, type: 3}
+    - target: {fileID: 8069999140220718207, guid: 3025c050f6b86a74682a4f148ef1a783,
+        type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a932d32fca391cd48b4a00bba29315cd, type: 3}
+    - target: {fileID: 8069999140220718207, guid: 3025c050f6b86a74682a4f148ef1a783,
+        type: 3}
+      propertyPath: victorySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 25b73ff12b0b1e145983b9e44791c313, type: 3}
+    - target: {fileID: 8069999140220718207, guid: 3025c050f6b86a74682a4f148ef1a783,
+        type: 3}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bb8b708ed5cdf2e4bae4e17b435dbb01, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3025c050f6b86a74682a4f148ef1a783, type: 3}

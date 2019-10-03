@@ -16,19 +16,16 @@ public class PlayerController : MonoBehaviour
     private const float POWERUP_DURATION = 3.0f;
     private const float MAX_MAGNITUDE = 10.0f;
 
-    public FixedJoystick movementJoystick;
-    public FixedButton jumpButton;
-    public GameObject playerModel;
-    public AudioClip coinSound;
-    public AudioClip victorySound;
-    public AudioClip gameOverSound;
-    public AudioClip powerUpSound;
-
+    [SerializeField]
+    private FixedJoystick movementJoystick;
+    [SerializeField]
+    private FixedButton jumpButton;
+    [SerializeField]
+    private GameObject playerModel;
 
     private GameManager gm;
     private TrailRenderer trail;
     private Camera mainCamera;
-    private AudioSource playerAudio;
     private Rigidbody playerRb;
     private Animator anim;
     private CapsuleCollider col;
@@ -45,14 +42,12 @@ public class PlayerController : MonoBehaviour
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         trail = GetComponent<TrailRenderer>();
-        playerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
         anim = playerModel.GetComponent<Animator>();
         col = GetComponent<CapsuleCollider>();
         trail.enabled = false;
         mainCamera = Camera.main;
         speedModifier = 1;
-
     }
     private void Update()
     {
@@ -63,7 +58,7 @@ public class PlayerController : MonoBehaviour
         MoveAndRotatePlayer();
         AnimatePlayer(jump);
     }
-    public void MoveAndRotatePlayer()
+    private void MoveAndRotatePlayer()
     {
         // Moving and rotating player
         cameraAngleY = mainCamera.transform.rotation.eulerAngles.y;
@@ -134,12 +129,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             gm.CoinCollectHandler();
-            playerAudio.PlayOneShot(coinSound, 1.0f);
+            gm.PlaySoundOnPlayer(gm.coinSound);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("PowerUp"))
         {
-            playerAudio.PlayOneShot(powerUpSound, 1.0f);
+            gm.PlaySoundOnPlayer(gm.powerUpSound);
             Destroy(collision.gameObject);
 
             if (lastPowerupHandler != null)
@@ -152,7 +147,6 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Exit"))
         {
             gm.ExitHandler();
-            playerAudio.PlayOneShot(victorySound, 1.0f);
             Destroy(collision.gameObject);
         }
     }

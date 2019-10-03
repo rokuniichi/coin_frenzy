@@ -43,8 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fc1733cb23e1c45b644582a48cdc4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: 0
   scoreText: {fileID: 0}
   timeText: {fileID: 0}
   gameOverText: {fileID: 0}
-  gameOver: 0
-  cameraAudioSource: {fileID: 0}
+  coinSound: {fileID: 8300000, guid: a932d32fca391cd48b4a00bba29315cd, type: 3}
+  victorySound: {fileID: 8300000, guid: 25b73ff12b0b1e145983b9e44791c313, type: 3}
+  gameOverSound: {fileID: 8300000, guid: bb8b708ed5cdf2e4bae4e17b435dbb01, type: 3}
+  powerUpSound: {fileID: 8300000, guid: a45339362ec64294fabf7e4d24c408d1, type: 3}

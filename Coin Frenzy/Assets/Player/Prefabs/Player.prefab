@@ -273,10 +273,6 @@ MonoBehaviour:
   movementJoystick: {fileID: 0}
   jumpButton: {fileID: 0}
   playerModel: {fileID: 8823225419684281843}
-  coinSound: {fileID: 8300000, guid: a932d32fca391cd48b4a00bba29315cd, type: 3}
-  victorySound: {fileID: 8300000, guid: 25b73ff12b0b1e145983b9e44791c313, type: 3}
-  gameOverSound: {fileID: 8300000, guid: bb8b708ed5cdf2e4bae4e17b435dbb01, type: 3}
-  powerUpSound: {fileID: 8300000, guid: a45339362ec64294fabf7e4d24c408d1, type: 3}
 --- !u!1001 &8823225419684379461
 PrefabInstance:
   m_ObjectHideFlags: 0

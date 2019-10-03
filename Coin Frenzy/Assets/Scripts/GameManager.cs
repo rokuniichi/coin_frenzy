@@ -7,19 +7,29 @@ public class GameManager : MonoBehaviour
 {
     private const float GAME_TIME = 60.0f;
 
-    public Text scoreText;
-    public Text timeText;
-    public Text gameOverText;
-    
     [HideInInspector]
     public bool gameOver;
+
+    [SerializeField]
+    private Text scoreText;
+    [SerializeField]
+    private Text timeText;
+    [SerializeField]
+    private Text gameOverText;
+   
+    public AudioClip coinSound;
+    public AudioClip victorySound;
+    public AudioClip gameOverSound;
+    public AudioClip powerUpSound;
+
+    private AudioSource cameraAudioSource;
+    private AudioSource playerAudioSource;
     private GameObject[] gameUI;
     private GameObject[] pauseUI;
     private GameObject[] hideGameOverUI;
     private GameObject[] showGameOverUI;
     private ButtonManager bm;
     private PlayerController controller;
-    public AudioSource cameraAudioSource;
     private int coinsCollected;
     private float timer;
     private Rect tempRect;
@@ -34,6 +44,7 @@ public class GameManager : MonoBehaviour
         bm = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ButtonManager>();
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         cameraAudioSource = Camera.main.GetComponent<AudioSource>();
+        playerAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         SetActiveUI(gameUI, true);
         SetActiveUI(pauseUI, false);
         SetActiveUI(showGameOverUI, false);
@@ -85,11 +96,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void playSound(AudioClip sound)
+    public void PlaySoundOnCamera(AudioClip sound)
     {
         cameraAudioSource.PlayOneShot(sound, 1.0f);
     }
 
+    public void PlaySoundOnPlayer(AudioClip sound)
+    {
+        playerAudioSource.PlayOneShot(sound, 1.0f);
+    }
     private void GameOverHandler()
     {
         gameOver = false;
@@ -101,7 +116,7 @@ public class GameManager : MonoBehaviour
         SetActiveUI(pauseUI, true);
         SetActiveUI(showGameOverUI, true);
 
-        playSound(controller.gameOverSound);
+        PlaySoundOnCamera(gameOverSound);
 
         //tempRect = scoreTextRt.rect;
         //scoreTextRt.localPosition = new Vector3(-SCORE_TEXT_OFFSET, SCORE_TEXT_OFFSET, 0);
@@ -117,7 +132,7 @@ public class GameManager : MonoBehaviour
         SetActiveUI(pauseUI, true);
         SetActiveUI(showGameOverUI, true);
 
-        playSound(controller.victorySound);
+        PlaySoundOnCamera(victorySound);
 
         //tempRect = scoreTextRt.rect;
         //scoreTextRt.localPosition = new Vector3(-SCORE_TEXT_OFFSET, SCORE_TEXT_OFFSET, 0);
@@ -140,4 +155,5 @@ public class GameManager : MonoBehaviour
             SetActiveUI(gameUI, true);
         }
     }
+
 }
