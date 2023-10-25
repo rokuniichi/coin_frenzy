@@ -16,8 +16,3 @@ Unity Asset Store links:
 * [Loop & Music Free](https://assetstore.unity.com/packages/audio/music/loop-music-free-111896)
 * [Fantasy Skybox FREE](https://assetstore.unity.com/packages/2d/textures-materials/sky/fantasy-skybox-free-18353)
 * [Terrain Tools Sample Asset Pack](https://assetstore.unity.com/packages/2d/textures-materials/terrain-tools-sample-asset-pack-145808)
-___
-<p align="center">
-  <b>Made With</b><br>
-  <a href="https://unity.com/"><img src="https://unity3d.com/files/images/ogimg.jpg"</a>
-</p>
